@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background-color: #0a0a0f;
+    color: #e8e8f0;
+    font-family: 'Barlow Condensed', sans-serif;
+    min-height: 100%;
+    overscroll-behavior: none;
+  }
+
+  #root {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0f0f1a; }
+  ::-webkit-scrollbar-thumb { background: #1e1e2e; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #00f5d4; }
+}
+
+@layer components {
+  .neon-border {
+    border: 1px solid #00f5d444;
+    box-shadow: 0 0 10px #00f5d411, inset 0 0 10px #00f5d408;
+  }
+
+  .neon-border:hover {
+    border-color: #00f5d488;
+    box-shadow: 0 0 20px #00f5d422, inset 0 0 20px #00f5d411;
+    transition: all 0.3s ease;
+  }
+
+  .fire-border {
+    border: 1px solid #ff4d0044;
+    box-shadow: 0 0 10px #ff4d0011, inset 0 0 10px #ff4d0408;
+  }
+
+  .mythic-border {
+    border: 1px solid #a855f744;
+    box-shadow: 0 0 15px #a855f722;
+  }
+
+  .card {
+    @apply bg-card rounded-xl border border-border;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-300 hover:border-opacity-60;
+  }
+
+  .btn-primary {
+    @apply bg-neon text-bg font-display tracking-widest text-lg px-6 py-3 rounded-lg 
+           transition-all duration-200 hover:brightness-110 active:scale-95
+           disabled:opacity-40 disabled:cursor-not-allowed;
+    box-shadow: 0 0 15px #00f5d444;
+  }
+
+  .btn-fire {
+    @apply bg-fire text-white font-display tracking-widest text-lg px-6 py-3 rounded-lg
+           transition-all duration-200 hover:brightness-110 active:scale-95;
+    box-shadow: 0 0 15px #ff4d0044;
+  }
+
+  .btn-ghost {
+    @apply border border-border text-muted font-body tracking-wider px-6 py-3 rounded-lg
+           transition-all duration-200 hover:border-neon hover:text-neon active:scale-95;
+  }
+
+  .rank-badge {
+    @apply font-mono text-xs px-2 py-1 rounded uppercase tracking-widest;
+  }
+
+  .xp-bar-track {
+    @apply w-full h-2 rounded-full bg-border overflow-hidden;
+  }
+
+  .xp-bar-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+  }
+
+  .section-title {
+    @apply font-display tracking-widest text-2xl text-text uppercase;
+  }
+
+  .label {
+    @apply font-mono text-xs text-muted uppercase tracking-widest;
+  }
+
+  .stat-value {
+    @apply font-display text-3xl tracking-wider;
+  }
+
+  /* Glitch text effect */
+  .glitch {
+    position: relative;
+    animation: glitch 4s infinite;
+  }
+
+  @keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); }
+    91% { transform: translate(-2px, 0); }
+    92% { transform: translate(2px, 0); }
+    93% { transform: translate(0, -1px); }
+    94% { transform: translate(0, 1px); }
+    95% { transform: translate(0); }
+  }
+
+  /* Scanline overlay */
+  .scanlines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.15) 2px,
+      rgba(0, 0, 0, 0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  /* Rank color utility */
+  .text-bronze { color: #cd7f32; }
+  .text-silver { color: #c0c0c0; }
+  .text-gold { color: #ffd700; }
+  .text-elite { color: #3b82f6; }
+  .text-mythic { color: #a855f7; }
+
+  .bg-bronze { background-color: #cd7f32; }
+  .bg-silver { background-color: #c0c0c0; }
+  .bg-gold { background-color: #ffd700; }
+  .bg-elite { background-color: #3b82f6; }
+  .bg-mythic { background-color: #a855f7; }
+
+  /* Pulse ring */
+  .pulse-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    opacity: 0;
+    animation: pulseRing 2s ease-out infinite;
+  }
+
+  @keyframes pulseRing {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+
+  /* Bottom nav safe area */
+  .nav-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
