@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" fill="#0a0a0f"/>
+  <rect x="19.200000000000003" y="19.200000000000003" width="153.60000000000002" height="153.60000000000002" fill="none" stroke="#00f5d4" stroke-width="5.76" rx="19.200000000000003"/>
+  <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" 
+    font-family="serif" font-weight="bold" font-size="105.60000000000001" fill="#00f5d4">R</text>
+  <text x="50%" y="88%" dominant-baseline="middle" text-anchor="middle"
+    font-family="monospace" font-size="15.36" fill="#00f5d488" letter-spacing="2">REBEL</text>
+</svg>
